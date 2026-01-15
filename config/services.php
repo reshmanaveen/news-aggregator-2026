@@ -34,7 +34,7 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-    
+
     'newsapi' => [
         'key' => env('NEWSAPI_KEY'),
         'url' => 'https://newsapi.org/v2/top-headlines',
@@ -44,7 +44,7 @@ return [
         'key' => env('GUARDIAN_KEY'),
         'url' => 'https://content.guardianapis.com/search',
     ],
-    
+
     'nytimes' => [
         'key' => env('NYTIMES_KEY'),
         'url' => 'https://api.nytimes.com/svc/search/v2/articlesearch.json',
