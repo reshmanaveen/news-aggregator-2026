@@ -23,7 +23,7 @@ class GuardianProvider implements NewsProviderInterface
             return [];
         }
 
-        return collect($response['response']['results'])->map(fn ($a) => [
+        return collect($response['response']['results'])->map(fn($a) => [
             'external_id' => $a['id'],
             'title' => $a['webTitle'] ?? null,
             'description' => null,
@@ -32,6 +32,7 @@ class GuardianProvider implements NewsProviderInterface
             'category' => $a['sectionName'] ?? null,
             'url' => $a['webUrl'],
             'image_url' => $a['fields']['thumbnail'] ?? null,
-            'published_at' => isset($a['webPublicationDate']) ? Carbon::parse($a['webPublicationDate'])->format('Y-m-d H:i:s') : null])->toArray();
+            'published_at' => isset($a['webPublicationDate']) ? Carbon::parse($a['webPublicationDate'])->format('Y-m-d H:i:s') : null
+        ])->toArray();
     }
 }

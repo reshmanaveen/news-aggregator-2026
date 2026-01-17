@@ -5,6 +5,7 @@ namespace App\Services\News\Providers;
 use App\Services\News\Contracts\NewsProviderInterface;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class NewsApiProvider implements NewsProviderInterface
 {
@@ -16,6 +17,7 @@ class NewsApiProvider implements NewsProviderInterface
         ]);
 
         if ($response->failed() || ! isset($response['articles'])) {
+            Log::error(" newsapi failed");
             return [];
         }
 
