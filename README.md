@@ -54,11 +54,20 @@ artisan migrate --seed
 
 
 
-NEWSAPI_KEY= GUARDIAN_KEY= NYTIMES_KEY= BBC_KEY=
+NEWSAPI_KEY= GUARDIAN_KEY= NYTIMES_KEY=
 
 Fetch articles:
 
 php artisan news:fetch
+
+## Testing
+
+This project includes basic feature tests for the article API.
+
+Run tests with:
+
+php artisan test
+
 
 ## Author
 
