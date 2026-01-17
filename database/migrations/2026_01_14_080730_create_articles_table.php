@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('source_id')->constrained();
             $table->string('external_id');
             $table->string('title');
@@ -21,10 +22,17 @@ return new class extends Migration
             $table->string('author')->nullable();
             $table->string('category')->nullable();
             $table->string('url');
-            $table->string('image_url')->nullable();
+            $table->text('image_url')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
+
             $table->unique(['source_id', 'external_id']);
+
+            // Indexes
+            $table->index(['source_id', 'published_at']); // composite index for filtering + sorting
+            $table->index('published_at');
+            $table->index('category');
+            $table->index('author');
         });
     }
 
